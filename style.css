@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
-*{margin:0;padding:0;top:0;left:0;color:var(--base-fg);}a{color:var(--accent);text-decoration-color:var(--accent);}:root{background:var(--base-bg);
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 720px;
+*{margin:0;padding:0;top:0;left:0;color:var(--base-fg);}a{color:var(--accent);text-decoration-color:var(--accent);}body{margin-left:var(--card-margin);margin-right:var(--card-margin);}:root{background:var(--base-bg);margin-left:auto;margin-right:auto;
 
+  max-width: 720px;
   font-family: 'Lexend Deca', sans-serif;
+
   --base-bg: #022028;
   --base-fg: #d5d6d7;
   --accent: #12bef2;
@@ -26,7 +25,7 @@
   box-shadow: inset 0 1px rgba(255, 255, 255, .1),
               inset 0 0 0 1px rgba(255, 255, 255, .06),
               0 0 0 1px var(--border-color);
-  margin: var(--card-margin);
+  margin-bottom: var(--card-margin);
 }
 
 .card h3 {
@@ -88,7 +87,7 @@
   margin-top: 0;
 }
 
-#me {
+#me, #links {
   display: flex;
 }
 
@@ -102,6 +101,11 @@
   flex: 25%;
 }
 
+#me p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 #me #name {
   color: var(--strong-fg);
   font-size: 32px;
@@ -109,7 +113,7 @@
 
 #me #title {
   color: var(--base-fg);
-  margin: 4px;
+  margin-top: 4px;
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 28px;
@@ -132,12 +136,12 @@
 }
 
 #links {
-  display: flex;
+  margin-bottom: var(--card-margin);
 }
-
+#links a:first-child{margin-left:0;}#links a:last-child{margin-right:0;}
 #links a {
   flex: 25%;
-  margin: 16px;
+  margin: 10px;
 }
 
 .github {
@@ -151,8 +155,13 @@
 }
 
 .instagram {
-  background-image: linear-gradient(-135deg, #933ab4, #c13584, #e1306c, #fd1d1d, #fed080);
+  background: radial-gradient(ellipse farthest-corner at 0% 90%, #fec564, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 0 -25%, #933ab4, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+              radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+              linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
   color: #fafafa;
+  text-shadow: none;
 }
 
 .okuna {

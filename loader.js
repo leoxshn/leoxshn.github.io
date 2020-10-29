@@ -11,18 +11,16 @@ function loadMe () {
 
   column1.innerHTML = "";
 
-  column1.innerHTML += `<h1 id=name>${json.me.name}</h1><p id=title>${json.me.title}</p><ul id=info>`;
+  column1.innerHTML += `<h1 id=name>${json.me.name}</h1><p id=title>${json.me.title}</p>`;
 
   function addInfoIfNotNull (name, x) {
     if (x) {
-      column1.innerHTML += `<li>${name}: ${x}</li>`
+      column1.innerHTML += `<p>${name}: ${x}</p>`
     }
   }
 
   addInfoIfNotNull("phone", json.me.phone);
   addInfoIfNotNull("email", json.me.email);
-
-  column1.innerHTML += `</ul>`;
 
   skills.innerHTML = "";
   for (var i = 0; i < json.me.skills.length; i++) {
