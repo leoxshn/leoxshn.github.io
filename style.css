@@ -1,35 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 *{margin:0;padding:0;top:0;left:0;color:var(--base-fg);}a{color:var(--accent);text-decoration-color:var(--accent);}:root{background:var(--base-bg);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+
   font-family: 'Lexend Deca', sans-serif;
   --base-bg: #022028;
   --base-fg: #d5d6d7;
   --accent: #12bef2;
   --border-color: rgba(0, 0, 0, .3);
 
+  --strong-fg: #e1e2e3;
+
   --card-radius: 12px;
-  --card-padding: 10px;
-  --card-margin: 10px;
+  --card-padding: 18px;
+  --card-margin: 32px;
 
   --me-width: 240px;
-}
-
-#me {
-  width: var(--me-width);
-  height: 100%;
-  position: fixed;
-  background-color: rgba(255, 255, 255, .1);
-  background-clip: padding-box;
-  box-shadow: inset -1px 0 rgba(255, 255, 255, .06),
-              1px 0 var(--border-color);
-  padding-left: 16px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-
-#experience {
-  margin-left: var(--me-width);
-  width: calc(100% - var(--me-width));
 }
 
 .card {
@@ -43,14 +30,10 @@
 }
 
 .card h3 {
-  color: #e1e2e3;
-  font-size: 20px;
-  text-align: center;
-  padding: var(--card-padding);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 1px rgba(255, 255, 255, .06);
-  border-radius: var(--card-radius) var(--card-radius) 0 0;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, .2), transparent);
+  color: var(--strong-fg);
+  font-size: 32px;
+  padding-top: 20px;
+  padding-left: var(--card-padding);
 }
 
 .card p {
@@ -61,13 +44,16 @@
   display: inline-block;
   padding: var(--card-padding);
   padding-top: 0;
+  padding-right: 0;
   margin-left: 5px;
   font-size: 16px;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .3s;
 }
 
 .card .link:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--accent);
 }
 
 .card .link:before {
@@ -82,38 +68,47 @@
   margin-right: 8px;
 }
 
-.file-button, #me a {
+.file-button, #links a {
   text-decoration: none;
   display: inline-block;
-  margin: 8px;
-  border-radius: calc(var(--card-radius) - 8px);
+  border-radius: 6px;
   box-shadow: inset 0 1px rgba(255, 255, 255, .28),
               inset 0 0 0 1px rgba(255, 255, 255, .2),
               0 0 0 1px var(--border-color);
   text-shadow: 0 1px rgba(0, 0, 0, .2),
                0 1px 1px rgba(0, 0, 0, .26);
   padding: var(--card-radius);
+  text-align: center;
 }
 
 .file-button {
   background-color: var(--accent);
   color: #ffffff;
+  margin: var(--card-padding);
   margin-top: 0;
 }
 
-#me a {
-  display: block;
-  margin-right: calc(16px + 8px);
+#me {
+  display: flex;
+}
+
+#me #column1 {
+  flex: 50%;
+  margin-top: 60px;
+}
+
+#skillColumn, #langColumn {
+  margin-top: 72px;
+  flex: 25%;
 }
 
 #me #name {
-  color: #e1e2e3;
-  margin-top: 24px;
+  color: var(--strong-fg);
   font-size: 32px;
 }
 
-#me #about {
-  color: var(--accent);
+#me #title {
+  color: var(--base-fg);
   margin: 4px;
   font-size: 16px;
   line-height: 24px;
@@ -121,7 +116,7 @@
 }
 
 #me h3 {
-  color: #e1e2e3;
+  color: var(--strong-fg);
   font-size: 20px;
 }
 
@@ -136,23 +131,60 @@
   line-height: 24px;
 }
 
-#me .github {
+#links {
+  display: flex;
+}
+
+#links a {
+  flex: 25%;
+  margin: 16px;
+}
+
+.github {
   background-color: #333;
   color: #fafafa;
 }
 
-#me .twitter {
+.twitter {
   background-color: #1da1f2;
   color: #f5f8fa;
 }
 
-#me .instagram {
+.instagram {
   background-image: linear-gradient(-135deg, #933ab4, #c13584, #e1306c, #fd1d1d, #fed080);
   color: #fafafa;
 }
 
-#me .okuna {
-  background-color: #dddddd;
+.okuna {
+  background-color: #dcddde;
   color: #252525;
   text-shadow: none;
+}
+
+@media screen and (prefers-color-scheme: light) {
+
+  :root {
+    --base-bg: #f0f4f6;
+    --base-fg: #434445;
+    --accent: #12bef2;
+    --border-color: rgba(0, 0, 0, .1);
+    --strong-fg: #000000;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .7),
+                inset 0 0 0 1px rgba(255, 255, 255, .7),
+                0 0 0 1px var(--border-color);
+  }
+
+  .okuna {
+    background-color: #ecedee;
+  }
+
+  .file-button, #links a {
+    box-shadow: inset 0 1px rgba(255, 255, 255, .3),
+                inset 0 0 0 1px rgba(255, 255, 255, .28),
+                0 0 0 1px rgba(0, 0, 0, .3);
+  }
 }

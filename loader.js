@@ -1,15 +1,28 @@
 
-const nameText = document.getElementById("name");
-const aboutText = document.getElementById("about");
-const skills = document.getElementById("skills");
-const info = document.getElementById("info");
 const me = document.getElementById("me");
+const column1 = document.getElementById("column1");
+const skills = document.getElementById("skills");
+const languages = document.getElementById("languages");
+const links = document.getElementById("links");
 
 const experienceDiv = document.getElementById("experience");
 
 function loadMe () {
-  nameText.innerText = json.me.name;
-  aboutText.innerText = json.me.text;
+
+  column1.innerHTML = "";
+
+  column1.innerHTML += `<h1 id=name>${json.me.name}</h1><p id=title>${json.me.title}</p><ul id=info>`;
+
+  function addInfoIfNotNull (name, x) {
+    if (x) {
+      column1.innerHTML += `<li>${name}: ${x}</li>`
+    }
+  }
+
+  addInfoIfNotNull("phone", json.me.phone);
+  addInfoIfNotNull("email", json.me.email);
+
+  column1.innerHTML += `</ul>`;
 
   skills.innerHTML = "";
   for (var i = 0; i < json.me.skills.length; i++) {
@@ -17,23 +30,20 @@ function loadMe () {
     skills.innerHTML += `<li>${s.name}</li>`;
   }
 
-  info.innerHTML = "";
-  function addInfoIfNotNull (name, x) {
-    if (x) {
-      info.innerHTML += `<li>${name}: ${x}</li>`
-    }
+  languages.innerHTML = "";
+  for (var i = 0; i < json.me.languages.length; i++) {
+    let s = json.me.languages[i];
+    languages.innerHTML += `<li>${s.name}</li>`;
   }
-
-  addInfoIfNotNull("phone", json.me.phone);
-  addInfoIfNotNull("email", json.me.email);
 
   let github = json.me.github;
   let twitter = json.me.twitter;
   let instagram = json.me.instagram;
   let okuna = json.me.okuna;
 
+  links.innerHTML = "";
   function addButton (type, link, name) {
-    me.innerHTML += `<a href=${link} class=${type}>${name}</a>`;
+    links.innerHTML += `<a href=${link} class=${type}>${name}</a>`;
   }
 
   if (github) addButton("github", `https://github.com/${github}`, "Github");
