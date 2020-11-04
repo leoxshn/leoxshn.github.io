@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
-*{margin:0;padding:0;top:0;left:0;color:var(--base-fg);}a{color:var(--accent);text-decoration-color:var(--accent);}body{margin-left:var(--card-margin);margin-right:var(--card-margin);}:root{background:var(--base-bg);margin-left:auto;margin-right:auto;
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');*{margin:0;padding:0;top:0;left:0;color:var(--base-fg);}a{color:var(--accent);text-decoration-color:var(--accent);}svg{fill:currentColor;}body{margin-left:var(--card-margin);margin-right:var(--card-margin);}:root{background:var(--base-bg);margin-left:auto;margin-right:auto;
 
   max-width: 720px;
   font-family: 'Lexend Deca', sans-serif;
@@ -17,6 +16,7 @@
 
   --me-width: 240px;
 }
+::selection{background:#12bef2;}
 
 .card {
   background-color: rgba(255, 255, 255, .1);
@@ -31,7 +31,7 @@
 .card h3 {
   color: var(--strong-fg);
   font-size: 32px;
-  padding-top: 20px;
+  padding-top: calc(var(--card-padding) - 2px);
   padding-left: var(--card-padding);
 }
 
@@ -67,7 +67,7 @@
   margin-right: 8px;
 }
 
-.file-button, #links a {
+.file-button {
   text-decoration: none;
   display: inline-block;
   border-radius: 6px;
@@ -87,18 +87,26 @@
   margin-top: 0;
 }
 
-#me, #links {
+#me {
   display: flex;
+  padding: var(--card-padding);
+  margin-bottom: var(--card-margin);
+  margin-top: var(--card-margin);
 }
 
 #me #column1 {
   flex: 50%;
-  margin-top: 60px;
+  margin-top: 18px;
 }
 
 #skillColumn, #langColumn {
-  margin-top: 72px;
+  margin-top: 30px;
   flex: 25%;
+}
+
+#me #face {
+  width: 200px;
+  border-radius: 50%;
 }
 
 #me p {
@@ -135,39 +143,26 @@
   line-height: 24px;
 }
 
+#me .info-icon {
+  height: 24px;
+  width: 16px;
+  vertical-align: middle;
+}
+
 #links {
-  margin-bottom: var(--card-margin);
+  margin-top: 12px;
 }
 #links a:first-child{margin-left:0;}#links a:last-child{margin-right:0;}
 #links a {
-  flex: 25%;
   margin: 10px;
 }
 
-.github {
-  background-color: #333;
-  color: #fafafa;
+#links a img {
+  height: 32px;
 }
 
-.twitter {
-  background-color: #1da1f2;
-  color: #f5f8fa;
-}
-
-.instagram {
-  background: radial-gradient(ellipse farthest-corner at 0% 90%, #fec564, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 0 -25%, #933ab4, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
-              radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
-              linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
-  color: #fafafa;
-  text-shadow: none;
-}
-
-.okuna {
-  background-color: #dcddde;
-  color: #252525;
-  text-shadow: none;
+.info-icon, .github {
+  filter: contrast(0) brightness(200%);
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -187,13 +182,13 @@
                 0 0 0 1px var(--border-color);
   }
 
-  .okuna {
-    background-color: #ecedee;
-  }
-
-  .file-button, #links a {
+  .file-button {
     box-shadow: inset 0 1px rgba(255, 255, 255, .3),
                 inset 0 0 0 1px rgba(255, 255, 255, .28),
                 0 0 0 1px rgba(0, 0, 0, .3);
+  }
+
+  .info-icon, .github {
+    filter: none;
   }
 }

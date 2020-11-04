@@ -3,7 +3,6 @@ const me = document.getElementById("me");
 const column1 = document.getElementById("column1");
 const skills = document.getElementById("skills");
 const languages = document.getElementById("languages");
-const links = document.getElementById("links");
 
 const experienceDiv = document.getElementById("experience");
 
@@ -11,16 +10,40 @@ function loadMe () {
 
   column1.innerHTML = "";
 
+  //column1.innerHTML += "<img id=face src=assets/me.png>";
+
   column1.innerHTML += `<h1 id=name>${json.me.name}</h1><p id=title>${json.me.title}</p>`;
 
-  function addInfoIfNotNull (name, x) {
-    if (x) {
-      column1.innerHTML += `<p>${name}: ${x}</p>`
-    }
+
+  if (json.me.phone) {
+      column1.innerHTML += `<p><img class=info-icon src=./assets/call-18dp.svg alt=phone> ${json.me.phone}</p>`
   }
 
-  addInfoIfNotNull("phone", json.me.phone);
-  addInfoIfNotNull("email", json.me.email);
+  if (json.me.email) {
+      column1.innerHTML += `<p><img class=info-icon src=./assets/email-18dp.svg alt=email> ${json.me.email}</p>`
+  }
+
+  let github = json.me.github;
+  let twitter = json.me.twitter;
+  let instagram = json.me.instagram;
+  let okuna = json.me.okuna;
+
+  column1.innerHTML += "<div id=links>"
+
+  if (github) {
+    links.innerHTML += `<a class=github href=https://github.com/${github}><img src=./assets/github.svg alt=Github></a>`;
+  }
+  if (twitter) {
+    links.innerHTML += `<a class=twitter href=https://twitter.com/${twitter}><img src=./assets/twitter.png alt=Twitter></a>`;
+  }
+  if (instagram) {
+    links.innerHTML += `<a class=instagram href=https://instagram.com/${instagram}><img src=./assets/instagram.png alt=Instagram></a>`;
+  }
+  if (okuna) {
+    links.innerHTML += `<a class=okuna href=https://okuna.io/${okuna}><img src=./assets/okuna.png alt=Okuna></a>`;
+  }
+
+  column1.innerHTML += "</div>"
 
   skills.innerHTML = "";
   for (var i = 0; i < json.me.skills.length; i++) {
@@ -33,21 +56,6 @@ function loadMe () {
     let s = json.me.languages[i];
     languages.innerHTML += `<li>${s.name}</li>`;
   }
-
-  let github = json.me.github;
-  let twitter = json.me.twitter;
-  let instagram = json.me.instagram;
-  let okuna = json.me.okuna;
-
-  links.innerHTML = "";
-  function addButton (type, link, name) {
-    links.innerHTML += `<a href=${link} class=${type}>${name}</a>`;
-  }
-
-  if (github) addButton("github", `https://github.com/${github}`, "Github");
-  if (twitter) addButton("twitter", `https://twitter.com/${twitter}`, "Twitter");
-  if (instagram) addButton("instagram", `https://instagram.com/${instagram}`, "Instagram");
-  if (okuna) addButton("okuna", `https://okuna.io/${okuna}`, "Okuna");
 }
 
 function loadExperience () {
@@ -81,3 +89,5 @@ function loadExperience () {
 
 loadMe();
 loadExperience();
+
+
