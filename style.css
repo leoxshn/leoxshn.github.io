@@ -89,6 +89,7 @@
 
 #me {
   display: flex;
+  flex-flow: row wrap;
   padding: var(--card-padding);
   margin-bottom: var(--card-margin);
   margin-top: var(--card-margin);
@@ -190,5 +191,16 @@
 
   .info-icon, .github {
     filter: none;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #me #column1 {
+    flex: 100%;
+  }
+
+  #skillColumn, #langColumn {
+    margin-top: 36px;
+    flex: 50%;
   }
 }
