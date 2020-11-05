@@ -35,6 +35,14 @@
   padding-left: var(--card-padding);
 }
 
+.card img {
+  border-radius: 6px;
+  width: calc(100% - var(--card-padding) * 2);
+  margin-left: var(--card-padding);
+  margin-right: var(--card-padding);
+  margin-top: 12px;
+}
+
 .card p {
   padding: var(--card-padding);
 }

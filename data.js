@@ -27,6 +27,7 @@ const json = {
     {
       name: "posidon launcher",
       text: "An android launcher with an RSS/Atom reader instead of multiple app pages",
+      image: "./images/posidonLauncher.png",
       links:[
         {text: "Github", url: "https://github.com/lposidon/posidonLauncher"},
         {text: "F-Droid", url: "https://f-droid.org/en/packages/posidon.launcher"},
@@ -71,7 +72,8 @@ const json = {
     },
     {
       name: "Uranium",
-      text: "Created a voxel game in Kotlin, using LWJGL (WIP)"
+      text: "A voxel engine in Kotlin, using LWJGL (WIP)",
+      image: "./images/uranium.jpeg"
     },
     {
       name: "Mango",

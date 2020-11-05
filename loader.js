@@ -67,6 +67,11 @@ function loadExperience () {
     let url = e.url;
     let card = "<div class=card>";
     card += url ? `<a href=${url}><h3>${e.name}</h3></a>` : `<h3>${e.name}</h3>`;
+
+    if (e.image) {
+      card += `<img src=${e.image}>`;
+    }
+
     card += `<p>${e.text}</p>`;
 
     let file = e.file;
